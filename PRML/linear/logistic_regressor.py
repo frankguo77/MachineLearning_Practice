@@ -1,5 +1,5 @@
 import numpy as np
-from Source.linear.classifier import Classifier
+from PRML.linear.classifier import Classifier
 
 class LogisticRegressor(Classifier):
     """
@@ -7,19 +7,19 @@ class LogisticRegressor(Classifier):
     y = sigmoid(X @ w)
     t ~ Bernoulli(t|y)
     """
-    def _fit(self, X, t, max_iter=100)：
+    def _fit(self, X, t, max_iter=100):
         self._check_binary(t)
-        w = np.zero(np.size(X,1))
+        w = np.zeros(np.size(X,1))
         for _ in range (max_iter):
             w_prev = np.copy(w)
             y = self._sigmoid(X @ w)
             grad = X.T @ (y - t)
             hessian = (X.T * y * (1 - y)) @ X
             try:
-                w -= np.np.linalg.solve(hessian, grad)
-            except np.linalg.LinAlgErro:
+                w -= np.linalg.solve(hessian, grad)
+            except np.linalg.LinAlgError:
                 break
-            if np.allclose(w, w_prev)
+            if np.allclose(w, w_prev):
                 break
         self.w = w        
  
