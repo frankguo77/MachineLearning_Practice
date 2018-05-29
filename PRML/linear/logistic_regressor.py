@@ -30,7 +30,7 @@ class LogisticRegressor(Classifier):
         y = self._sigmoid(X @ self.w)
         return y
         
-    def _classfiy(self,X,threshhold = 0.5):
-        prob = self._prob(X)
+    def _classify(self,X,threshhold = 0.5):
+        prob = self._proba(X)
         label = (prob > threshhold).astype(np.int)
         return label

@@ -24,15 +24,14 @@ class Classifier(object):
         else:
             raise NotImplementedError
 
-        def classify(self, X, **kwargs):
-            """
+    def classify(self, X, **kwargs):
+        """
+        classify inputs
+        Parameters
 
-            classify inputs
-            Parameters
+        ----------
 
-            ----------
-
-            X : (sample_size, n_features) np.ndarray
+        X : (sample_size, n_features) np.ndarray
 
             samples to classify
 
